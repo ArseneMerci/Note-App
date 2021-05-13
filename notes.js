@@ -21,6 +21,24 @@ const addNote = (title,body)=>{
         console.log(chalk.red.inverse('Note title taken!'))
     }
 }
+
+const removeNotes = (title)=>{
+    const notes = loadNotes()
+    newNotes = notes.filter(note => note.title !== title)
+    if(newNotes.length !== notes.length){
+        saveNotes(newNotes)
+        console.log(chalk.green.inverse('note deleted succesfully!'))
+    }else console.log(chalk.red.inverse('There is no note with such title!'))
+}
+
+const listNotes = ()=>{
+    notes = loadNotes()
+    let i=0;
+    console.log(chalk.green.inverse('All your notes'))
+    notes.forEach(note => {
+        console.log(chalk.yellow.inverse(`title ${i+=1}:`, note.title))
+    });
+}
 const saveNotes = (notes)=>{
     const dataJSON = JSON.stringify(notes)
     //we save data as json
@@ -35,16 +53,10 @@ const loadNotes = ()=>{
         return []
     }
 }
-const removeNotes = (title)=>{
-    const notes = loadNotes()
-    newNotes = notes.filter(note => note.title !== title)
-    if(newNotes.length !== notes.length){
-        saveNotes(newNotes)
-        console.log(chalk.green.inverse('note deleted succesfully!'))
-    }else console.log(chalk.red.inverse('There is no note with such title!'))
-}
+
 module.exports = {
     getNotes,
     addNote,
-    removeNotes
+    removeNotes,
+    listNotes
 }

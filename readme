@@ -1,1 +1,12 @@
-1. to add body run command' node app.js add --body="hello people on the internet"'
+add note
+```
+node app.js add --title="your unique title" --body="your body"
+```
+remove note
+```
+node app.js remove --title="existing title"
+```
+list all notes
+```
+node app.js list
+```

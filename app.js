@@ -45,9 +45,9 @@ yargs.command({
 //create list command
 yargs.command({
     command:'list',
-    describe:'list all note',
+    describe:'list all notes',
     handler:()=>{
-        console.log('listing all notes!');
+        notes.listNotes();
     }
 });
 //create read command
