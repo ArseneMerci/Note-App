@@ -1,10 +1,6 @@
 const fs = require('fs')
 const chalk = require('chalk');
 
-const getNotes = ()=>{
-    return 'Your notes...'
-}
-
 const addNote = (title,body)=>{
     const notes = loadNotes()
     const duplicateNote = notes.find((note)=>{
@@ -39,6 +35,15 @@ const listNotes = ()=>{
         console.log(chalk.yellow.inverse(`title ${i+=1}:`, note.title))
     });
 }
+
+const readNote = (title) =>{
+    const notes = loadNotes()
+    const noteExists = notes.find(note => note.title === title)
+    if(noteExists) console.log(chalk.green.inverse('title:' + noteExists.title+'\n'+'body:'+ noteExists.body))
+    else console.log(chalk.red.inverse('No note with such title'))
+}
+
+//reusable functions
 const saveNotes = (notes)=>{
     const dataJSON = JSON.stringify(notes)
     //we save data as json
@@ -55,8 +60,8 @@ const loadNotes = ()=>{
 }
 
 module.exports = {
-    getNotes,
     addNote,
     removeNotes,
-    listNotes
+    listNotes,
+    readNote
 }
