@@ -1,12 +1,19 @@
-add note
+# Note Taking App
+## Commands needed
+
+Add note
 ```
 node app.js add --title="your unique title" --body="your body"
 ```
-remove note
+Remove note
 ```
 node app.js remove --title="existing title"
 ```
-list all notes
+List all notes
 ```
 node app.js list
+```
+Read a Note
+```
+node app.js read --title="existing title"
 ```
