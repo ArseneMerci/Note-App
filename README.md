@@ -1,3 +1,6 @@
+# Note Taking App
+## Commands needed
+
 add note
 ```
 node app.js add --title="your unique title" --body="your body"
